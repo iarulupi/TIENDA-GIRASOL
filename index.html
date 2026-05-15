@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Girasol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="titulo">
+
+<h1>TIENDA GIRASOL</h1>
+
+    <img src="https://i.ibb.co/1fht26XT/Chat-GPT-Image-14-may-2026-08-58-26-p-m.png" alt="Logo">
+
+</div>
+
+<div class="productos">
+
+<!-- CUADERNO -->
+<div class="producto cuaderno"
+     onclick="agregar('CUADERNO', 7000, 'https://i.ibb.co/5WPfYfxh/Whats-App-Image-2026-05-14-at-8-54-53-PM.jpg')"
+     oncontextmenu="restar('CUADERNO', 7000); return false;">
+
+    <img src="https://i.ibb.co/5WPfYfxh/Whats-App-Image-2026-05-14-at-8-54-53-PM.jpg" alt="Cuaderno">
+
+    <p>CUADERNO</p>
+    <p>$7.000</p>
+</div>
+
+    <!-- COMBO PORTAVELAS -->
+    <div class="producto combo-portavelas-x3"
+         onclick="agregar('COMBO PORTAVELA x3', 7000, 'https://i.ibb.co/qLw5GwCx/Whats-App-Image-2026-05-14-at-8-54-53-PM-1.jpg')"
+         oncontextmenu="restar('COMBO PORTAVELA x3', 7000); return false;">
+
+        <img src="https://i.ibb.co/qLw5GwCx/Whats-App-Image-2026-05-14-at-8-54-53-PM-1.jpg"Combo portavela x3">
+
+        <p>COMBO PORTAVELA x3</p>
+        <p>$7.000</p>
+    </div>
+
+    <!-- PORTAVELA GRANDE -->
+    <div class="producto"
+         onclick="agregar('PORTAVELA GRANDE', 3000, 'https://i.ibb.co/4RTsfKvT/Whats-App-Image-2026-05-14-at-8-54-52-PM.jpg')"
+         oncontextmenu="restar('PORTAVELA GRANDE', 3000); return false;">
+
+        <img src="https://i.ibb.co/4RTsfKvT/Whats-App-Image-2026-05-14-at-8-54-52-PM.jpg" alt="Portavela grande">
+
+        <p>PORTAVELA GRANDE</p>
+        <p>$3.000</p>
+    </div>
+
+    <!-- PORTAVELA CHICO -->
+    <div class="producto"
+         onclick="agregar('PORTAVELA CHICO', 2000, 'https://i.ibb.co/Wv4rdRNW/Whats-App-Image-2026-05-14-at-8-54-53-PM-2.jpg')"
+         oncontextmenu="restar('PORTAVELA CHICO', 2000); return false;">
+
+        <img src="https://i.ibb.co/Wv4rdRNW/Whats-App-Image-2026-05-14-at-8-54-53-PM-2.jpg" alt="Portavela chico">
+
+        <p>PORTAVELA CHICO</p>
+        <p>$2.000</p>
+    </div>
+
+    <!-- PLATITO -->
+    <div class="producto platito-de-cemento"
+         onclick="agregar('PLATITO DE CEMENTO', 2000, 'https://i.ibb.co/wFbrpYSv/Whats-App-Image-2026-05-14-at-8-54-52-PM-3.jpg')"
+         oncontextmenu="restar('PLATITO DE CEMENTO', 2000); return false;">
+
+        <img src="https://i.ibb.co/wFbrpYSv/Whats-App-Image-2026-05-14-at-8-54-52-PM-3.jpg" alt="Platito de cemento">
+
+        <p>PLATITO DE CEMENTO</p>
+        <p>$2.000</p>
+    </div>
+
+    <!-- FLORERO -->
+    <div class="producto"
+         onclick="agregar('FLORERO', 7000, 'https://i.ibb.co/k2vLBGmp/Whats-App-Image-2026-05-14-at-8-54-51-PM.jpg')"
+         oncontextmenu="restar('FLORERO', 7000); return false;">
+
+        <img src="https://i.ibb.co/k2vLBGmp/Whats-App-Image-2026-05-14-at-8-54-51-PM.jpg"Florero">
+
+        <p>FLORERO</p>
+        <p>$7.000</p>
+    </div>
+
+    <!-- MACETA CHICA -->
+    <div class="producto"
+         onclick="agregar('MACETA CHICA', 6000, 'https://i.ibb.co/jCpvXfH/Whats-App-Image-2026-05-14-at-8-54-52-PM-1.jpg')"
+         oncontextmenu="restar('MACETA CHICA', 6000); return false;">
+
+        <img src="https://i.ibb.co/jCpvXfH/Whats-App-Image-2026-05-14-at-8-54-52-PM-1.jpg" alt="Maceta chica">
+
+        <p>MACETA CHICA</p>
+        <p>$6.000</p>
+    </div>
+
+    <!-- MACETA GRANDE -->
+    <div class="producto"
+         onclick="agregar('MACETA GRANDE', 10000, 'https://i.ibb.co/V03j88db/Whats-App-Image-2026-05-14-at-8-54-52-PM-2.jpg')"
+         oncontextmenu="restar('MACETA GRANDE', 10000); return false;">
+
+        <img src="https://i.ibb.co/V03j88db/Whats-App-Image-2026-05-14-at-8-54-52-PM-2.jpg" alt="Maceta grande">
+
+        <p>MACETA GRANDE</p>
+        <p>$10.000</p>
+    </div>
+
+</div>
+
+<h2>Total: $<span id="total">0</span></h2>
+
+<button onclick="cobrar()">COBRAR</button>
+
+<div class="carrito">
+    <h2>🛒 Carrito</h2>
+    <div id="lista-carrito"></div>
+</div>
+
+<div id="modal-pago" class="modal">
+
+    <div class="modal-contenido">
+
+        <h2>¿Método de pago?</h2>
+
+        <button onclick="pagarEfectivo()">
+            EFECTIVO
+        </button>
+
+        <button onclick="pagarTransferencia()">
+            TRANSFERENCIA
+        </button>
+
+        <button onclick="cerrarModal()" class="cerrar">
+            CANCELAR
+        </button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
