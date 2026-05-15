@@ -2,6 +2,27 @@ let total = 0;
 let carrito = [];
 let recibido = 0;
 let menuOriginal = "";
+let billetesRecibidos = [];
+
+function actualizarBilletes() {
+    const contenedor = document.getElementById("bandeja-billetes");
+    contenedor.innerHTML = "";
+
+    billetesRecibidos.forEach((b, index) => {
+        const div = document.createElement("div");
+        div.className = "billete-item";
+
+        div.innerHTML = `
+            <img src="${b.img}" alt="billete">
+
+            <div class="borrar-btn" onclick="eliminarBillete(${index})">
+    ✖
+</div>
+        `;
+
+        contenedor.appendChild(div);
+    });
+}
 
 function actualizar() {
     document.getElementById("total").textContent = total;
@@ -30,6 +51,17 @@ function actualizar() {
     lista.appendChild(div);
 });
 
+}
+
+function eliminarBillete(index) {
+    recibido -= billetesRecibidos[index].valor;
+
+    billetesRecibidos.splice(index, 1);
+
+    actualizarBilletes();
+
+    document.getElementById("recibido").textContent =
+        "TOTAL RECIBIDO: $" + recibido;
 }
 
 function agregar(nombre, precio, imagen) {
@@ -91,26 +123,26 @@ function pagarEfectivo() {
         <div class="billetes">
 
             <img src="https://images3.cgb.fr/images/billets/b97/b97_3808a.jpg"
-                 onclick="agregarBillete(100)">
+                 onclick="agregarBillete(100, 'https://images3.cgb.fr/images/billets/b97/b97_3808a.jpg')">
 
             <img src="https://images3.cgb.fr/images/billets/b91/b91_6875a.jpg"
-                 onclick="agregarBillete(200)">
+                 onclick="agregarBillete(200, 'https://images3.cgb.fr/images/billets/b91/b91_6875a.jpg')">
 
             <img src="https://banknotenews.com/wp-content/uploads/2016/07/Argentina_BCRA_500_pesos_2016.06.30_B421a_P365_A_00000101_f-1536x632.jpg"
-                 onclick="agregarBillete(500)">
+                 onclick="agregarBillete(500, 'https://banknotenews.com/wp-content/uploads/2016/07/Argentina_BCRA_500_pesos_2016.06.30_B421a_P365_A_00000101_f-1536x632.jpg')">
 
 
             <img src="https://images3.cgb.fr/images/billets/b87/b87_0586a.jpg"
-                 onclick="agregarBillete(1000)">
+                 onclick="agregarBillete(1000, 'https://images3.cgb.fr/images/billets/b87/b87_0586a.jpg')">
 
             <img src="https://storage.lacapitalmdp.com/2023/05/billete-2000pesos.jpg"
-                 onclick="agregarBillete(2000)">
+                 onclick="agregarBillete(2000, 'https://storage.lacapitalmdp.com/2023/05/billete-2000pesos.jpg')">
 
             <img src="https://platform.keesingtechnologies.com/wp-content/uploads/2024/05/AR083R.jpg"
-                 onclick="agregarBillete(10000)">
+                 onclick="agregarBillete(10000, 'https://platform.keesingtechnologies.com/wp-content/uploads/2024/05/AR083R.jpg')">
 
             <img src="https://buenosairesherald.com/wp-content/uploads/2024/11/20000_pesos_bill_banknote_billete_Alberdi.jpg"
-                 onclick="agregarBillete(20000)">
+                 onclick="agregarBillete(20000, 'https://buenosairesherald.com/wp-content/uploads/2024/11/20000_pesos_bill_banknote_billete_Alberdi.jpg')">
 
         </div>
 
@@ -121,6 +153,7 @@ function pagarEfectivo() {
 <h3 id="vuelto">
 </h3>
 
+<div id="bandeja-billetes"></div>
 <button onclick="calcularVuelto()">
     COBRAR
 </button>
@@ -162,13 +195,6 @@ function confirmarPago() {
     cerrarModal();
 }
 
-function agregarBillete(valor) {
-
-    recibido += valor;
-
-    document.getElementById("recibido").textContent =
-        "TOTAL RECIBIDO: $" + recibido;
-}
 
 function calcularVuelto() {
 
@@ -202,6 +228,8 @@ function finalizarCompra() {
 
     recibido = 0;
 
+    billetesRecibidos = []; // 👈 ESTE ES EL FIX
+
     actualizar();
 
     cerrarModal();
@@ -211,4 +239,23 @@ window.onload = function() {
 
     menuOriginal =
         document.querySelector(".modal-contenido").innerHTML;
+}
+
+function mover(valor) {
+    document.getElementById("productos").scrollBy({
+        left: valor,
+        behavior: "smooth"
+    });
+}
+
+function agregarBillete(valor, img) {
+
+    recibido += valor;
+
+    billetesRecibidos.push({ valor, img });
+
+    actualizarBilletes();
+
+    document.getElementById("recibido").textContent =
+        "TOTAL RECIBIDO: $" + recibido;
 }
