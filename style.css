@@ -392,10 +392,23 @@ p {
 .productos {
     display: flex;
     gap: 20px;
-    overflow: hidden; /* ocultamos la barra */
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
     scroll-behavior: smooth;
+
     max-width: 90vw;
+
     padding: 10px;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+}
+
+.productos::-webkit-scrollbar {
+    display: none;
 }
 
 .flecha {
