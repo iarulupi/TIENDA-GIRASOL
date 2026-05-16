@@ -259,3 +259,44 @@ function agregarBillete(valor, img) {
     document.getElementById("recibido").textContent =
         "TOTAL RECIBIDO: $" + recibido;
 }
+
+const slider = document.getElementById("productos");
+
+let presionado = false;
+let inicioX;
+let scrollInicial;
+
+slider.addEventListener("mousedown", (e) => {
+    presionado = true;
+
+    slider.style.cursor = "grabbing";
+
+    inicioX = e.pageX - slider.offsetLeft;
+
+    scrollInicial = slider.scrollLeft;
+});
+
+slider.addEventListener("mouseleave", () => {
+    presionado = false;
+
+    slider.style.cursor = "grab";
+});
+
+slider.addEventListener("mouseup", () => {
+    presionado = false;
+
+    slider.style.cursor = "grab";
+});
+
+slider.addEventListener("mousemove", (e) => {
+
+    if (!presionado) return;
+
+    e.preventDefault();
+
+    const x = e.pageX - slider.offsetLeft;
+
+    const mover = (x - inicioX) * 2;
+
+    slider.scrollLeft = scrollInicial - mover;
+});
