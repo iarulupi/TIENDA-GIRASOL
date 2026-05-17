@@ -3,6 +3,9 @@ let carrito = [];
 let recibido = 0;
 let menuOriginal = "";
 let billetesRecibidos = [];
+let historial = [];
+let totalDia = 0;
+let metodoPago = "";
 
 function actualizarBilletes() {
     const contenedor = document.getElementById("bandeja-billetes");
@@ -110,6 +113,8 @@ function cerrarModal() {
 
 function pagarEfectivo() {
 
+metodoPago = "EFECTIVO";
+
     recibido = 0;
 
     document.querySelector(".modal-contenido").innerHTML = `
@@ -167,6 +172,8 @@ function pagarEfectivo() {
 
 function pagarTransferencia() {
 
+metodoPago = "TRANSFERENCIA";
+
     document.querySelector(".modal-contenido").innerHTML = `
 
         <h2>TRANSFERENCIA</h2>
@@ -185,6 +192,8 @@ function pagarTransferencia() {
 }
 
 function confirmarPago() {
+
+guardarVenta();
 
     total = 0;
 
@@ -221,6 +230,8 @@ function calcularVuelto() {
 }
 
 function finalizarCompra() {
+
+guardarVenta();
 
     total = 0;
 
@@ -300,3 +311,185 @@ slider.addEventListener("mousemove", (e) => {
 
     slider.scrollLeft = scrollInicial - mover;
 });
+
+function pantallaCompleta() {
+
+    const boton =
+        document.querySelector(".fullscreen-btn");
+
+    if (!document.fullscreenElement) {
+
+        document.documentElement.requestFullscreen();
+
+        boton.style.display = "none";
+    }
+}
+
+function guardarVenta() {
+
+    const ahora = new Date();
+
+    const hora =
+        ahora.getHours().toString().padStart(2, "0")
+        + ":" +
+        ahora.getMinutes().toString().padStart(2, "0");
+
+    historial.push({
+    hora: hora,
+    total: total,
+    metodo: metodoPago
+});
+
+    totalDia += total;
+
+    actualizarHistorial();
+}
+
+function actualizarHistorial() {
+
+    const lista =
+        document.getElementById("lista-historial");
+
+    lista.innerHTML = "";
+
+    historial.forEach(v => {
+
+        const item =
+            document.createElement("p");
+
+        item.textContent =
+    `${v.hora} - ${v.metodo} - $${v.total}`;
+
+        lista.appendChild(item);
+    });
+
+    document.getElementById("total-dia").textContent =
+        "TOTAL DEL DÍA: $" + totalDia;
+}
+
+document.addEventListener("fullscreenchange", () => {
+
+    const boton =
+        document.querySelector(".fullscreen-btn");
+
+    if (!document.fullscreenElement) {
+
+        boton.style.display = "block";
+    }
+});
+
+function abrirHistorial() {
+
+    document.getElementById("modal-historial")
+        .style.display = "flex";
+}
+
+function cerrarHistorial() {
+
+    document.getElementById("modal-historial")
+        .style.display = "none";
+}
+
+function descargarHistorial() {
+
+    const { jsPDF } = window.jspdf;
+
+    const pdf = new jsPDF();
+
+    const fecha =
+        new Date().toLocaleDateString("es-AR");
+
+    const logo = new Image();
+
+    logo.crossOrigin = "anonymous";
+
+    logo.src = "https://i.ibb.co/1fht26XT/Chat-GPT-Image-14-may-2026-08-58-26-p-m.png";
+
+    logo.onload = function() {
+
+        pdf.addImage(
+    logo,
+    "PNG",
+    165,
+    10,
+    30,
+    30
+);
+
+        generarPDF();
+    };
+
+    logo.onerror = function() {
+
+        generarPDF();
+    };
+
+    function generarPDF() {
+
+        pdf.setFont(
+    "helvetica",
+    "bold"
+);
+
+pdf.setFontSize(22);
+
+pdf.text(
+    "TIENDA GIRASOL",
+    105,
+    20,
+    { align: "center" }
+);
+
+pdf.setFont(
+    "helvetica",
+    "italic"
+);
+
+pdf.setFontSize(16);
+
+pdf.setFont(
+    "helvetica",
+    "bold"
+);
+
+pdf.text(
+    "Historial del día",
+    105,
+    30,
+    { align: "center" }
+);
+
+pdf.setFont(
+    "helvetica",
+    "normal"
+);
+
+pdf.setFontSize(12);
+
+pdf.text(
+    "Fecha: " + fecha,
+    20,
+    45
+);
+
+        let y = 60;
+
+        historial.forEach((venta, i) => {
+
+            pdf.text(
+                `${i + 1}. ${venta.metodo} - $${venta.total}`,
+                20,
+                y
+            );
+
+            y += 10;
+        });
+
+        y += 10;
+
+
+        pdf.save(
+            `historial_tienda_girasol_${fecha}.pdf`
+        );
+    }
+}

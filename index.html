@@ -3,7 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
+
     <title>Tienda Girasol</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -15,6 +20,10 @@
 </head>
 
 <body>
+
+<button onclick="pantallaCompleta()" class="fullscreen-btn">
+    ⛶ Pantalla completa
+</button>
 
 <div class="titulo">
 
@@ -136,6 +145,10 @@
     <div id="lista-carrito"></div>
 </div>
 
+<button onclick="abrirHistorial()" class="historial-btn">
+    📋 VER HISTORIAL
+</button>
+
 <div id="modal-pago" class="modal">
 
     <div class="modal-contenido">
@@ -158,6 +171,32 @@
 
 </div>
 
+<div id="modal-historial" class="modal">
+
+    <div class="modal-contenido">
+
+        <h2>📋 Historial del día</h2>
+
+        <div id="lista-historial"></div>
+
+        <h3 id="total-dia">
+            TOTAL DEL DÍA: $0
+        </h3>
+
+<button onclick="descargarHistorial()">
+    DESCARGAR HISTORIAL
+</button>
+
+        <button onclick="cerrarHistorial()">
+            CERRAR
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="script.js"></script>
 
 </body>
