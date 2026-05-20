@@ -212,7 +212,7 @@ function calcularVuelto() {
     if (vuelto < 0) {
 
         document.getElementById("vuelto").textContent =
-            "FALTAN $" + Math.abs(vuelto);
+            "FALTAN $" + formatoPesos(Math.abs(vuelto));
 
         return;
     }
