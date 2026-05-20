@@ -219,7 +219,7 @@ function calcularVuelto() {
 
     document.getElementById("vuelto").innerHTML = `
 
-        VUELTO: $${vuelto}
+        VUELTO: $${formatoPesos(vuelto)}
 
         <br><br>
 
