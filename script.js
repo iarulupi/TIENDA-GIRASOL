@@ -121,7 +121,7 @@ metodoPago = "EFECTIVO";
 
         <h2>EFECTIVO</h2>
 
-        <p><strong>TOTAL:</strong> $${total}</p>
+        <p><strong>TOTAL:</strong> $${formatoPesos(total)}</p>
 
         <p><strong>¿QUÉ BILLETES TE DIERON?</strong></p>
 
@@ -178,7 +178,7 @@ metodoPago = "TRANSFERENCIA";
 
         <h2>TRANSFERENCIA</h2>
 
-        <p><strong>TOTAL:</strong> $${total}</p>
+        <p><strong>TOTAL:</strong> $${formatoPesos(total)}</p>
 
         <p><strong>ALIAS:</strong></p>
 
