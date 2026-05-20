@@ -493,3 +493,7 @@ pdf.text(
         );
     }
 }
+
+function formatoPesos(numero) {
+    return numero.toLocaleString("es-AR");
+}    
