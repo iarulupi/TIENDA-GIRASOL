@@ -498,6 +498,10 @@ pdf.text(
     }
 }
 
+function formatearDinero(numero) {
+    return numero.toLocaleString("es-AR");
+}
+
 function formatoPesos(numero) {
     return numero.toLocaleString("es-AR");
-}    
+}
