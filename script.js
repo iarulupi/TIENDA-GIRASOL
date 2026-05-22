@@ -367,7 +367,8 @@ function actualizarHistorial() {
     });
 
     document.getElementById("total-dia").textContent =
-        "TOTAL DEL DÍA: $" + totalDia;
+        "TOTAL DEL DÍA: $" +
+formatearDinero(totalDia);
 }
 
 document.addEventListener("fullscreenchange", () => {
