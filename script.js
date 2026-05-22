@@ -214,7 +214,8 @@ function calcularVuelto() {
     if (vuelto < 0) {
 
         document.getElementById("vuelto").textContent =
-            "FALTAN $" + formatoPesos(Math.abs(vuelto));
+            "FALTAN $" +
+formatearDinero(Math.abs(vuelto));
 
         return;
     }
