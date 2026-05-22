@@ -526,3 +526,13 @@ body {
 
     font-size: 16px;
 }
+#modal-historial .modal-contenido {
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+#lista-historial {
+    max-height: 55vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
