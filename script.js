@@ -48,7 +48,7 @@ function actualizar() {
 
     <p>${p.nombre}</p>
 
-    <p>$${p.precio}</p>
+    <p>$${formatearDinero(p.precio)}</p>
 `;
 
     lista.appendChild(div);
