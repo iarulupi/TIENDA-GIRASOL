@@ -28,8 +28,9 @@ function actualizarBilletes() {
 }
 
 function actualizar() {
-    document.getElementById("total").textContent = total;
-
+    document.getElementById("total").textContent =
+    formatearDinero(total);
+    
     let lista = document.getElementById("lista-carrito");
     lista.innerHTML = "";
 
