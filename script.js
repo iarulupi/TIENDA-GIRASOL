@@ -190,6 +190,10 @@ metodoPago = "TRANSFERENCIA";
             PAGÓ
         </button>
 
+        <button onclick="cerrarModal()">
+            VOLVER
+        </button>
+
     `;
 }
 
