@@ -65,7 +65,8 @@ function eliminarBillete(index) {
     actualizarBilletes();
 
     document.getElementById("recibido").textContent =
-        "TOTAL RECIBIDO: $" + formatoPesos(recibido);
+        "TOTAL RECIBIDO: $" +
+formatearDinero(recibido);
 }
 
 function agregar(nombre, precio, imagen) {
