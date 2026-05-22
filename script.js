@@ -222,8 +222,7 @@ formatearDinero(Math.abs(vuelto));
 
     document.getElementById("vuelto").innerHTML = `
 
-        VUELTO: $${formatoPesos(vuelto)}
-
+        VUELTO: $${formatearDinero(vuelto)}
         <br><br>
 
         <button onclick="finalizarCompra()">
