@@ -269,7 +269,8 @@ function agregarBillete(valor, img) {
     actualizarBilletes();
 
     document.getElementById("recibido").textContent =
-        "TOTAL RECIBIDO: $" + recibido;
+        "TOTAL RECIBIDO: $" +
+formatearDinero(recibido);
 }
 
 const slider = document.getElementById("productos");
