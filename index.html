@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
+
+    <title>Tienda Girasol</title>
+<link rel="icon" type="image/png" href="favicon.png">
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<button onclick="pantallaCompleta()" class="fullscreen-btn">
+    ⛶ Pantalla completa
+</button>
+
+<div class="titulo">
+
+<h1>TIENDA GIRASOL</h1>
+
+    <img src="https://i.ibb.co/1fht26XT/Chat-GPT-Image-14-may-2026-08-58-26-p-m.png" alt="Logo">
+
+</div>
+
+<div class="catalogo">
+
+    <button class="flecha izquierda" onclick="mover(-300)">‹</button>
+
+    <div class="productos" id="productos">
+
+<!-- CUADERNO GRANDE -->
+<div class="producto cuaderno grande"
+     onclick="agregar('CUADERNO GRANDE', 7000, 'https://i.ibb.co/5WPfYfxh/Whats-App-Image-2026-05-14-at-8-54-53-PM.jpg')"
+     oncontextmenu="restar('CUADERNO GRANDE', 7000); return false;">
+
+    <img src="https://i.ibb.co/5WPfYfxh/Whats-App-Image-2026-05-14-at-8-54-53-PM.jpg" alt="Cuaderno">
+
+    <p>CUADERNO GRANDE</p>
+    <p>$7.000</p>
+</div>
+
+<!-- CUADERNO CHICO -->
+<div class="producto cuaderno chico"
+     onclick="agregar('CUADERNO CHICO', 4000, 'https://i.ibb.co/LdLrdrpC/CUADERNO-CHICO.png')"
+     oncontextmenu="restar('CUADERNO CHICO', 4000); return false;">
+
+    <img src="https://i.ibb.co/LdLrdrpC/CUADERNO-CHICO.png" alt="Cuaderno">
+
+    <p>CUADERNO CHICO </p>
+    <p>$4.000</p>
+</div> 
+        
+    <!-- COMBO PORTAVELAS -->
+    <div class="producto combo-portavelas-x3"
+         onclick="agregar('COMBO PORTAVELA x3', 7000, 'https://i.ibb.co/fYmK47nt/COMBO-PORTA-VELAS-X-3.jpg')"
+         oncontextmenu="restar('COMBO PORTAVELA x3', 7000); return false;">
+
+        <img src="https://i.ibb.co/fYmK47nt/COMBO-PORTA-VELAS-X-3.jpg"Combo portavela x3">
+
+        <p>COMBO PORTAVELA x3</p>
+        <p>$7.000</p>
+    </div>
+
+    <!-- PORTAVELA GRANDE -->
+    <div class="producto"
+         onclick="agregar('PORTAVELA GRANDE', 3000, 'https://i.ibb.co/tMTqL4FV/Whats-App-Image-2026-07-07-at-8-38-25-PM.jpg')"
+         oncontextmenu="restar('PORTAVELA GRANDE', 3000); return false;">
+
+        <img src="https://i.ibb.co/tMTqL4FV/Whats-App-Image-2026-07-07-at-8-38-25-PM.jpg" alt="Portavela grande">
+
+        <p>PORTAVELA GRANDE</p>
+        <p>$3.000</p>
+    </div>
+
+    <!-- PORTAVELA CHICO -->
+    <div class="producto"
+         onclick="agregar('PORTAVELA CHICO', 2000, 'https://i.ibb.co/FNTHFwB/PORTA-VELAS-CHICO.jpg')"
+         oncontextmenu="restar('PORTAVELA CHICO', 2000); return false;">
+
+        <img src="https://i.ibb.co/FNTHFwB/PORTA-VELAS-CHICO.jpg" alt="Portavela chico">
+
+        <p>PORTAVELA CHICO</p>
+        <p>$2.000</p>
+    </div>
+
+    <!-- PLATITO OVALADO-->
+    <div class="producto platito-ovalado"
+         onclick="agregar('PLATITO OVALADO', 2000, 'https://i.ibb.co/BHh7mLZt/Whats-App-Image-2026-07-07-at-8-37-05-PM.jpg')"
+         oncontextmenu="restar('PLATITO OVALADO', 2000); return false;">
+
+        <img src="https://i.ibb.co/BHh7mLZt/Whats-App-Image-2026-07-07-at-8-37-05-PM.jpg" alt="Platito ovalado">
+
+        <p>PLATITO OVALADO</p>
+        <p>$2.000</p>
+    </div>
+
+
+    <!-- PLATITO CIRCULAR-->
+    <div class="producto platito-circular"
+         onclick="agregar('PLATITO CIRCULAR', 2000, 'https://i.ibb.co/qMXHzwkM/Whats-App-Image-2026-07-07-at-8-24-30-PM.jpg')"
+         oncontextmenu="restar('PLATITO CIRCULAR', 2000); return false;">
+
+        <img src="https://i.ibb.co/qMXHzwkM/Whats-App-Image-2026-07-07-at-8-24-30-PM.jpg">
+
+        <p>PLATITO CIRCULAR</p>
+        <p>$2.000</p>
+    </div>
+        
+    <!-- MACETA CHICA -->
+    <div class="producto"
+         onclick="agregar('MACETA CHICA', 6000, 'https://i.ibb.co/Tq8Rf68w/Whats-App-Image-2026-07-07-at-8-35-10-PM.jpg')"
+         oncontextmenu="restar('MACETA CHICA', 6000); return false;">
+
+        <img src="https://i.ibb.co/Tq8Rf68w/Whats-App-Image-2026-07-07-at-8-35-10-PM.jpg" alt="Maceta chica">
+
+        <p>MACETA CHICA</p>
+        <p>$6.000</p>
+    </div>
+
+    <!-- MACETA GRANDE -->
+    <div class="producto"
+         onclick="agregar('MACETA GRANDE', 10000, 'https://i.ibb.co/fdjz1RVD/MACETA-GRANDE.jpg')"
+         oncontextmenu="restar('MACETA GRANDE', 10000); return false;">
+
+        <img src="https://i.ibb.co/fdjz1RVD/MACETA-GRANDE.jpg" alt="Maceta grande">
+
+        <p>MACETA GRANDE</p>
+        <p>$10.000</p>
+    </div>
+
+        <!-- FLORERO -->
+    <div class="producto"
+         onclick="agregar('FLORERO', 7000, 'https://i.ibb.co/k2vLBGmp/Whats-App-Image-2026-05-14-at-8-54-51-PM.jpg')"
+         oncontextmenu="restar('FLORERO', 7000); return false;">
+
+        <img src="https://i.ibb.co/k2vLBGmp/Whats-App-Image-2026-05-14-at-8-54-51-PM.jpg"Florero">
+
+        <p>FLORERO</p>
+        <p>$7.000</p>
+    </div>
+
+    </div>
+
+    <button class="flecha derecha" onclick="mover(300)">›</button>
+
+</div>
+
+</div>
+
+<h2>Total: $<span id="total">0</span></h2>
+
+<button onclick="cobrar()">COBRAR</button>
+
+<div class="carrito">
+    <h2>🛒 Carrito</h2>
+    <div id="lista-carrito"></div>
+</div>
+
+<button onclick="abrirHistorial()" class="historial-btn">
+    📋 VER HISTORIAL
+</button>
+
+<div id="modal-pago" class="modal">
+
+    <div class="modal-contenido">
+
+        <h2>¿Método de pago?</h2>
+
+        <button onclick="pagarEfectivo()">
+            EFECTIVO
+        </button>
+
+        <button onclick="pagarTransferencia()">
+            TRANSFERENCIA
+        </button>
+
+        <button onclick="cerrarModal()" class="cerrar">
+            CANCELAR
+        </button>
+
+    </div>
+
+</div>
+
+<div id="modal-historial" class="modal">
+
+    <div class="modal-contenido">
+
+        <h2>📋 Historial del día</h2>
+
+        <div id="lista-historial"></div>
+
+        <h3 id="total-dia">
+            TOTAL DEL DÍA: $0
+        </h3>
+
+<button onclick="descargarHistorial()">
+    DESCARGAR HISTORIAL
+</button>
+
+        <button onclick="cerrarHistorial()">
+            CERRAR
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
